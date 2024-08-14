@@ -1,0 +1,30 @@
+# Default values for book-api.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+deploymentLabel: bookserver
+deploymentName: bookserver-deployment
+
+containerPort: 8080
+
+image:
+  repository: hamim99/book-serve
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: latest
+
+imagePullSecrets: []
+nameOverride: ""
+
+
+
+podName: bookpod
+podLabel: bookserver
+
+
+service:
+  type: NodePort
+  port: 3200
+  name: bookserver-service
+  label: bookserver
